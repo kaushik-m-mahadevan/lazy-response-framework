@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.lazyresponse</groupId>
+        <artifactId>lazy-response-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>lazy-response-demo</artifactId>
+    <packaging>jar</packaging>
+    <name>Lazy Response Framework — Mock Demo App</name>
+    <description>
+        Self-contained runnable demo that exercises the framework against a realistic
+        Order Details API scenario. All downstream services are mocked in-process with
+        realistic latencies. No external dependencies required — start and hit the endpoint.
+
+        Designed to serve as the permanent test bed for framework validation, smoke testing,
+        and future demo scenarios. Add new downstream mocks here as the framework evolves.
+    </description>
+
+    <dependencies>
+        <!-- The framework under test -->
+        <dependency>
+            <groupId>com.lazyresponse</groupId>
+            <artifactId>lazy-response-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--
+            springdoc included so the Swagger UI is available at /swagger-ui.html.
+            Activates LazyResponseSwaggerContributor automatically.
+        -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+
+        <!-- Actuator — enables health endpoint and Micrometer in the demo -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- Spring Security — activates security context propagation in the demo -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- Validation — activates @Validated constraint checking on LazyResponseProperties -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- skip=false (default) — this module IS an executable jar -->
+            </plugin>
+        </plugins>
+    </build>
+</project>

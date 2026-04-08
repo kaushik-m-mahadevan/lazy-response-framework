@@ -1,0 +1,16 @@
+com\lazyresponse\demo\model\response\PricingResponse.class
+com\lazyresponse\demo\model\response\ProductResponse.class
+com\lazyresponse\demo\model\response\ReviewSummaryResponse.class
+com\lazyresponse\demo\controller\ProductDetailController.class
+com\lazyresponse\demo\model\request\ProductDetailRequest.class
+com\lazyresponse\demo\DemoApplication.class
+com\lazyresponse\demo\downstream\OrderDetailDownstreams.class
+com\lazyresponse\demo\model\response\AccountResponse.class
+com\lazyresponse\demo\controller\OrderDetailController.class
+com\lazyresponse\demo\downstream\ProductDetailDownstreams.class
+com\lazyresponse\demo\model\response\OrderResponse.class
+com\lazyresponse\demo\model\response\LoyaltyResponse.class
+com\lazyresponse\demo\model\request\OrderDetailRequest.class
+com\lazyresponse\demo\model\response\ShipmentResponse.class
+com\lazyresponse\demo\model\response\InventoryResponse.class
+com\lazyresponse\demo\model\response\PaymentResponse.class

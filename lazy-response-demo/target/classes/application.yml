@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: lazy-response-demo
+
+lazy-response:
+  failure-strategy: silent   # Change to fail-fast to test hard-abort behaviour
+  timeout:
+    global: 3000             # Floor timeout for all downstreams (ms)
+  executor:
+    pool-size: 20
+
+# Expose the /lazy/graph and /actuator endpoints for demo convenience
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+logging:
+  level:
+    com.lazyresponse: DEBUG  # Framework-level debug logs visible during demo runs
