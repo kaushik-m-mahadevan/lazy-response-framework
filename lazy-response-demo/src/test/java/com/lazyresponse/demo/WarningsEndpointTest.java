@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Downstream;
@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Tests for {@code meta.warnings} — the soft-threshold slow-downstream signal (spec §7.5).
+ * Tests for {@code meta.warnings}  -  the soft-threshold slow-downstream signal (spec §7.5).
  *
  * <p>Uses {@code lazy-response.timeout.warning-threshold=100} so any downstream taking
  * longer than 100ms generates a warning. The stub {@code slowOrder} sleeps 200ms,
@@ -93,7 +93,7 @@ class WarningsEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 3. Warning threshold disabled (0) — no warnings even for slow downstream
+    // 3. Warning threshold disabled (0)  -  no warnings even for slow downstream
     // -------------------------------------------------------------------------
 
     // This scenario is tested via the other endpoint test classes which do not set
@@ -133,14 +133,14 @@ class WarningsEndpointTest {
 
         public static class WarningsTestDownstreamService {
 
-            /** Sleeps 200ms — exceeds the 100ms soft threshold, not the 2000ms hard timeout. */
+            /** Sleeps 200ms  -  exceeds the 100ms soft threshold, not the 2000ms hard timeout. */
             @Downstream(id = "order", fields = {"id", "status"}, chainTimeout = 2000)
             public Map<String, Object> fetchOrder(ExecutionContext ctx) {
                 sleep(200);
                 return Map.of("id", "ORD-001", "status", "CONFIRMED");
             }
 
-            /** Returns immediately — under any reasonable soft threshold. */
+            /** Returns immediately  -  under any reasonable soft threshold. */
             @Downstream(id = "account", fields = {"name"})
             public Map<String, Object> fetchAccount(ExecutionContext ctx) {
                 return Map.of("name", "Test User");

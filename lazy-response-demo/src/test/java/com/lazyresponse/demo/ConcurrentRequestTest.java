@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.annotation.LazyResponse;
@@ -44,10 +44,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  *
  * <p>Fires N simultaneous requests against a pool of size M (N > M). The test asserts:
  * <ol>
- *   <li>No request hangs indefinitely — all complete within a generous timeout.</li>
+ *   <li>No request hangs indefinitely  -  all complete within a generous timeout.</li>
  *   <li>All successful requests (HTTP 200) return valid JSON with the expected fields.</li>
  *   <li>Requests rejected due to semaphore exhaustion return HTTP 503.</li>
- *   <li>Semaphore permits are fully restored after each request — confirmed by a final
+ *   <li>Semaphore permits are fully restored after each request  -  confirmed by a final
  *       successful request after all concurrent ones have finished.</li>
  * </ol>
  *
@@ -117,10 +117,10 @@ class ConcurrentRequestTest {
         // and a 30-second window, all 3 slots must have served at least one request each.
         long successCount = statuses.stream().filter(s -> s == 200).count();
         assertThat(successCount)
-                .as("At least pool-size (3) requests must succeed — semaphore has 3 permits")
+                .as("At least pool-size (3) requests must succeed  -  semaphore has 3 permits")
                 .isGreaterThanOrEqualTo(3);
 
-        // Permits must be fully restored — a final request after all concurrent ones
+        // Permits must be fully restored  -  a final request after all concurrent ones
         // must succeed without a 503.
         mockMvc.perform(post("/api/orders/detail")
                         .with(user("user").roles("USER"))

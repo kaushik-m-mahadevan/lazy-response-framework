@@ -1,4 +1,4 @@
-package com.lazyresponse.graph;
+﻿package com.lazyresponse.graph;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.context.ExecutionContext;
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * Unit tests for {@link DependencyGraph} — reference validation, cycle detection,
+ * Unit tests for {@link DependencyGraph}  -  reference validation, cycle detection,
  * stage construction, chain timeout resolution, and Mermaid generation.
  * No Spring context required.
  */
@@ -133,7 +133,7 @@ class DependencyGraphTest {
     }
 
     // -------------------------------------------------------------------------
-    // 2. topologicalSort — correct levels
+    // 2. topologicalSort  -  correct levels
     // -------------------------------------------------------------------------
 
     @Test
@@ -217,7 +217,7 @@ class DependencyGraphTest {
         Linear stubs = new Linear();
         DownstreamRegistration rA = reg(stubs, "a"); // chainTimeout=3000
         DownstreamRegistration rB = reg(stubs, "b"); // no timeout, inherits chain
-        DownstreamRegistration rC = reg(stubs, "c"); // timeout=400 — overrides
+        DownstreamRegistration rC = reg(stubs, "c"); // timeout=400  -  overrides
         DependencyGraph g = new DependencyGraph(graph(rA, rB, rC));
         g.topologicalSort();
         g.resolveChainTimeouts(5000);
@@ -227,7 +227,7 @@ class DependencyGraphTest {
 
     @Test
     void resolveChainTimeouts_globalFallsBack_whenNoChainOrPerNode() throws Exception {
-        // b has no chainTimeout, no timeout — should fall back to global
+        // b has no chainTimeout, no timeout  -  should fall back to global
         WithDeps stubs = new WithDeps();
         DownstreamRegistration rA = reg(stubs, "a");
         DownstreamRegistration rB = reg(stubs, "b"); // no timeout, no chain
@@ -274,7 +274,7 @@ class DependencyGraphTest {
         Roots stubs = new Roots();
         DependencyGraph g = new DependencyGraph(graph(reg(stubs, "a"), reg(stubs, "b")));
         String chart = g.toMermaidFlowchart();
-        // a and b are isolated (no edges) — must appear as standalone nodes
+        // a and b are isolated (no edges)  -  must appear as standalone nodes
         assertThat(chart).contains("    a\n");
         assertThat(chart).contains("    b\n");
     }

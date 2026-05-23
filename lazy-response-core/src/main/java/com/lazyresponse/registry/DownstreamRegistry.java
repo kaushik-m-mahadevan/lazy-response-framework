@@ -1,4 +1,4 @@
-package com.lazyresponse.registry;
+﻿package com.lazyresponse.registry;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.exception.ApplicationStartupException;
@@ -28,7 +28,7 @@ public class DownstreamRegistry {
     /**
      * Registers a discovered {@code @Downstream} method.
      *
-     * @param targetClass the actual (non-proxied) class declaring the method — used for
+     * @param targetClass the actual (non-proxied) class declaring the method  -  used for
      *                    per-endpoint scoping and argument resolver selection
      * @throws ApplicationStartupException if the registry is already sealed or if the id
      *                                     duplicates an existing registration
@@ -52,7 +52,7 @@ public class DownstreamRegistry {
     /**
      * Seals the registry, builds the dependency graph, validates references, detects cycles,
      * and resolves effective timeouts. Called once when the application context has finished
-     * refreshing. Idempotent — subsequent calls are no-ops.
+     * refreshing. Idempotent  -  subsequent calls are no-ops.
      *
      * @param globalTimeoutMs the global timeout floor from YAML, used as the base for
      *                        chain timeout resolution
@@ -74,7 +74,7 @@ public class DownstreamRegistry {
      *
      * <p>Used by the aspect to restrict each {@code @LazyResponse} endpoint to only
      * the downstreams declared in its {@link com.lazyresponse.annotation.LazyResponse#downstreams()}
-     * attribute. Returns an empty set if {@code beanTypes} is empty — the caller interprets
+     * attribute. Returns an empty set if {@code beanTypes} is empty  -  the caller interprets
      * an empty set as "no restriction" (all downstreams in scope).
      *
      * @param beanTypes the set of declaring class types to filter by

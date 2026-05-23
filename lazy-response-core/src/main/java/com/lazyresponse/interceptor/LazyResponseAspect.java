@@ -1,4 +1,4 @@
-package com.lazyresponse.interceptor;
+﻿package com.lazyresponse.interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.LazyResponse;
@@ -87,7 +87,7 @@ public class LazyResponseAspect {
      * Resolves the set of downstream IDs that are in scope for this endpoint.
      *
      * <p>When {@link LazyResponse#downstreams()} is non-empty, only the downstreams declared
-     * by the listed bean classes are eligible. An empty array means no restriction — all
+     * by the listed bean classes are eligible. An empty array means no restriction  -  all
      * registered downstreams are in scope (equivalent to a global graph).
      */
     private Set<String> resolveScopedIds(LazyResponse lazyResponse) {
@@ -108,7 +108,7 @@ public class LazyResponseAspect {
     /**
      * Reads the cached body bytes from the request. The request must have been wrapped by
      * {@link CachedBodyHttpServletRequest}. If it has not been wrapped (e.g., the framework
-     * filter was bypassed), falls back to reading the input stream directly — which will fail
+     * filter was bypassed), falls back to reading the input stream directly  -  which will fail
      * if the stream was already consumed by Spring MVC.
      */
     private byte[] readCachedBody(HttpServletRequest request) throws Exception {

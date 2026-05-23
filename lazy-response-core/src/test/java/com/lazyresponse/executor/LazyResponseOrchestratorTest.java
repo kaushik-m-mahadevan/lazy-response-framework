@@ -1,4 +1,4 @@
-package com.lazyresponse.executor;
+﻿package com.lazyresponse.executor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Default;
@@ -22,7 +22,7 @@ import java.util.concurrent.Semaphore;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Unit tests for {@link LazyResponseOrchestrator} — happy path, silent failure,
+ * Unit tests for {@link LazyResponseOrchestrator}  -  happy path, silent failure,
  * defaults, chain blocking, timeout, empty template, and semaphore exhaustion.
  * No Spring context required.
  */
@@ -141,7 +141,7 @@ class LazyResponseOrchestratorTest {
     }
 
     // -------------------------------------------------------------------------
-    // 2. Happy path — fields filtered to template
+    // 2. Happy path  -  fields filtered to template
     // -------------------------------------------------------------------------
 
     @Test
@@ -160,7 +160,7 @@ class LazyResponseOrchestratorTest {
     }
 
     // -------------------------------------------------------------------------
-    // 3. Silent failure — @Default values applied, no-default fields null + error
+    // 3. Silent failure  -  @Default values applied, no-default fields null + error
     // -------------------------------------------------------------------------
 
     @Test
@@ -183,7 +183,7 @@ class LazyResponseOrchestratorTest {
     }
 
     // -------------------------------------------------------------------------
-    // 4. Chain failure — independent downstream unaffected
+    // 4. Chain failure  -  independent downstream unaffected
     // -------------------------------------------------------------------------
 
     @Test
@@ -201,7 +201,7 @@ class LazyResponseOrchestratorTest {
     }
 
     // -------------------------------------------------------------------------
-    // 5. Timeout — reason=timeout in meta.errors
+    // 5. Timeout  -  reason=timeout in meta.errors
     // -------------------------------------------------------------------------
 
     @Test
@@ -233,7 +233,7 @@ class LazyResponseOrchestratorTest {
     }
 
     // -------------------------------------------------------------------------
-    // 7. Transitive dependency — parent executed, absent from template data
+    // 7. Transitive dependency  -  parent executed, absent from template data
     // -------------------------------------------------------------------------
 
     @Test
@@ -253,7 +253,7 @@ class LazyResponseOrchestratorTest {
     }
 
     // -------------------------------------------------------------------------
-    // 8. Fail-fast — downstream error returns DOWNSTREAM_ERROR
+    // 8. Fail-fast  -  downstream error returns DOWNSTREAM_ERROR
     // -------------------------------------------------------------------------
 
     @Test

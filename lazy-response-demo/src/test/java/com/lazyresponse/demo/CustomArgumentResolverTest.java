@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Downstream;
@@ -46,7 +46,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *       (simulating a Feign client method that takes typed parameters instead of
  *       {@link ExecutionContext}).</li>
  *   <li>Startup fails with a clear error when a {@code @Downstream} method has no
- *       supporting resolver — catching misconfiguration early.</li>
+ *       supporting resolver  -  catching misconfiguration early.</li>
  * </ol>
  */
 @SpringBootTest(classes = {
@@ -122,7 +122,7 @@ class CustomArgumentResolverTest {
         }
 
         /**
-         * Custom resolver for {@link WidgetService} — extracts a string argument from the
+         * Custom resolver for {@link WidgetService}  -  extracts a string argument from the
          * ExecutionContext's request and passes it as a typed parameter, simulating how a
          * Feign client resolver would work.
          */
@@ -136,7 +136,7 @@ class CustomArgumentResolverTest {
 
                 @Override
                 public Object[] resolve(Method method, ExecutionContext ctx) {
-                    // The method takes a String parameter — extract it from the context
+                    // The method takes a String parameter  -  extract it from the context
                     return new Object[]{"custom-resolved"};
                 }
             };
@@ -151,7 +151,7 @@ class CustomArgumentResolverTest {
         }
     }
 
-    /** @Downstream method takes no args — no built-in or custom resolver supports it. */
+    /** @Downstream method takes no args  -  no built-in or custom resolver supports it. */
     @Configuration
     static class UnsupportedSignatureConfig {
         @Bean
@@ -159,7 +159,7 @@ class CustomArgumentResolverTest {
 
         public static class UnsupportedService {
             @Downstream(id = "broken", fields = {"x"})
-            public Map<String, Object> fetch() {          // zero params — no resolver supports this
+            public Map<String, Object> fetch() {          // zero params  -  no resolver supports this
                 return Map.of("x", "value");
             }
         }

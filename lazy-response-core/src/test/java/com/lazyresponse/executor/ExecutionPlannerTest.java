@@ -1,4 +1,4 @@
-package com.lazyresponse.executor;
+﻿package com.lazyresponse.executor;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.context.ExecutionContext;
@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Unit tests for {@link ExecutionPlanner} — template filtering, transitive dependency
+ * Unit tests for {@link ExecutionPlanner}  -  template filtering, transitive dependency
  * resolution, unknown key handling, and empty plan production.
  * No Spring context required.
  */

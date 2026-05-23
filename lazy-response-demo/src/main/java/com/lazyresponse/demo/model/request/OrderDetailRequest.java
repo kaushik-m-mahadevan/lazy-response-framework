@@ -1,11 +1,11 @@
-package com.lazyresponse.demo.model.request;
+﻿package com.lazyresponse.demo.model.request;
 
 /**
  * Inner request POJO for the Order Details lazy endpoint.
  *
  * <p>Both fields are available to all downstream methods via
  * {@code ctx.getRequest(OrderDetailRequest.class)}. Downstreams use whichever
- * fields are relevant — order and payment care about {@code orderId},
+ * fields are relevant  -  order and payment care about {@code orderId},
  * account and loyalty care about {@code accountId}.
  */
 public class OrderDetailRequest {

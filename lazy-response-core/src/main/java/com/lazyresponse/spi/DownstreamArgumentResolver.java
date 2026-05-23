@@ -1,4 +1,4 @@
-package com.lazyresponse.spi;
+﻿package com.lazyresponse.spi;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.context.ExecutionContext;
@@ -10,16 +10,16 @@ import java.lang.reflect.Method;
  * the default single-{@link ExecutionContext}-parameter convention.
  *
  * <p>Implement this interface and register it as a Spring bean to support {@code @Downstream}
- * on methods with custom signatures — the primary use case being {@code @FeignClient} interface
+ * on methods with custom signatures  -  the primary use case being {@code @FeignClient} interface
  * methods that take typed parameters instead of an {@link ExecutionContext}.
  *
  * <p>The framework ships with {@link ExecutionContextArgumentResolver} for standard methods.
  * Custom resolvers are checked first (in bean declaration order); the built-in resolver is
  * checked last as a fallback.
  *
- * <h3>Example — applying {@code @Downstream} directly on a Feign client:</h3>
+ * <h3>Example  -  applying {@code @Downstream} directly on a Feign client:</h3>
  * <pre>{@code
- * // 1. Annotate the FeignClient method directly — no wrapper service needed
+ * // 1. Annotate the FeignClient method directly  -  no wrapper service needed
  * @FeignClient(name = "order-service")
  * interface OrderClient {
  *     @Downstream(id = "order", fields = {"id", "status", "total"}, chainTimeout = 2000)
@@ -43,7 +43,7 @@ import java.lang.reflect.Method;
  * }</pre>
  *
  * <p>With this setup the {@code @Downstream} annotation on {@code OrderClient.getOrder()}
- * is discovered automatically, and the framework invokes the Feign proxy directly — no
+ * is discovered automatically, and the framework invokes the Feign proxy directly  -  no
  * boilerplate wrapper {@code @Service} class required.
  *
  * @see ExecutionContextArgumentResolver

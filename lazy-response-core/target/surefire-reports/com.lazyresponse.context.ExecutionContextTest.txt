@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.lazyresponse.context.ExecutionContextTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.545 s -- in com.lazyresponse.context.ExecutionContextTest

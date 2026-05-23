@@ -1,4 +1,4 @@
-package com.lazyresponse.executor;
+﻿package com.lazyresponse.executor;
 
 import com.lazyresponse.model.DownstreamRegistration;
 import com.lazyresponse.model.ExecutionPlan;
@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
  * <p>Only downstreams whose ids appear as top-level keys in the template are included.
  * Any dependency of a requested downstream is automatically included, even if not
  * explicitly mentioned in the template. Downstreams not transitively required by the
- * template are excluded entirely — they are never invoked.
+ * template are excluded entirely  -  they are never invoked.
  *
  * <p>Unknown template keys (ids with no registered {@code @Downstream}) are silently ignored.
  * The caller is responsible for correct template usage, as documented via the Swagger contract.
  *
  * <p>When a non-empty {@code scopedIds} set is provided (via
  * {@link com.lazyresponse.annotation.LazyResponse#downstreams()}), only those downstreams are
- * eligible — unknown or out-of-scope template keys are silently dropped. This enables safe
+ * eligible  -  unknown or out-of-scope template keys are silently dropped. This enables safe
  * multi-endpoint deployments where each endpoint operates on its own isolated downstream graph.
  */
 public class ExecutionPlanner {

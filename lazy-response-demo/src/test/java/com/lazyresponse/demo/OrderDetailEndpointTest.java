@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Default;
@@ -35,11 +35,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Runtime endpoint tests for {@code POST /api/orders/detail} in {@code silent} failure mode.
  *
- * <p>Uses {@link SpringBootTest} with an explicit {@code classes} list — no component scan.
+ * <p>Uses {@link SpringBootTest} with an explicit {@code classes} list  -  no component scan.
  * This means exactly what we specify is in the context: the controller, the test stubs,
  * and the framework auto-configurations. No production downstreams, no collision.
  *
- * <p>Fail-fast tests are in {@link OrderDetailFailFastEndpointTest} — separate context
+ * <p>Fail-fast tests are in {@link OrderDetailFailFastEndpointTest}  -  separate context
  * with {@code lazy-response.failure-strategy=fail-fast}.
  */
 @SpringBootTest(classes = {
@@ -80,7 +80,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 2. Partial template — unrequested downstreams absent from response
+    // 2. Partial template  -  unrequested downstreams absent from response
     // -------------------------------------------------------------------------
 
     @Test
@@ -115,7 +115,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 4. Downstream failure — silent mode, @Default values applied
+    // 4. Downstream failure  -  silent mode, @Default values applied
     // -------------------------------------------------------------------------
 
     @Test
@@ -133,7 +133,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 5. Downstream failure — fields with no @Default are null + meta.errors entry
+    // 5. Downstream failure  -  fields with no @Default are null + meta.errors entry
     // -------------------------------------------------------------------------
 
     @Test
@@ -151,7 +151,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 6. Chain failure — child blocked, independent chain unaffected
+    // 6. Chain failure  -  child blocked, independent chain unaffected
     // -------------------------------------------------------------------------
 
     @Test
@@ -170,7 +170,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 7. Timeout — downstream exceeds timeout, reason=timeout in meta.errors
+    // 7. Timeout  -  downstream exceeds timeout, reason=timeout in meta.errors
     // -------------------------------------------------------------------------
 
     @Test
@@ -187,7 +187,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 8. Transitive dependency — parent auto-included even when absent from template
+    // 8. Transitive dependency  -  parent auto-included even when absent from template
     // -------------------------------------------------------------------------
 
     @Test
@@ -205,7 +205,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 9. Empty template — 200 with empty data block
+    // 9. Empty template  -  200 with empty data block
     // -------------------------------------------------------------------------
 
     @Test
@@ -237,7 +237,7 @@ class OrderDetailEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // Stub controller — no downstreams scope so all test stubs are eligible
+    // Stub controller  -  no downstreams scope so all test stubs are eligible
     // -------------------------------------------------------------------------
 
     @RestController

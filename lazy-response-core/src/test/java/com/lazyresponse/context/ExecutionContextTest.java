@@ -1,4 +1,4 @@
-package com.lazyresponse.context;
+﻿package com.lazyresponse.context;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * Unit tests for {@link ExecutionContext} — read/write semantics, type casting,
+ * Unit tests for {@link ExecutionContext}  -  read/write semantics, type casting,
  * null result handling, and concurrent write safety.
  */
 class ExecutionContextTest {
@@ -67,7 +67,7 @@ class ExecutionContextTest {
 
     @Test
     void hasResult_trueEvenWhenValueIsNull() {
-        // ConcurrentHashMap does NOT allow null values — but the spec says hasResult
+        // ConcurrentHashMap does NOT allow null values  -  but the spec says hasResult
         // tracks presence. Putting null must be handled; here we test that the
         // contract survives a non-null put (null values go through the failure path,
         // not put() directly).

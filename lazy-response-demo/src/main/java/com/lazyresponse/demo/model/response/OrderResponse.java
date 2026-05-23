@@ -1,10 +1,10 @@
-package com.lazyresponse.demo.model.response;
+﻿package com.lazyresponse.demo.model.response;
 
 import java.math.BigDecimal;
 
 /**
  * Mocks the response from an internal Order Service DB read.
- * Root downstream — no dependencies. Feeds payment, shipment, and inventory.
+ * Root downstream  -  no dependencies. Feeds payment, shipment, and inventory.
  */
 public class OrderResponse {
 

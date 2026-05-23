@@ -1,4 +1,4 @@
-package com.lazyresponse.model;
+﻿package com.lazyresponse.model;
 
 /**
  * A single entry in the {@code meta.errors} block of the response envelope.
@@ -32,10 +32,10 @@ public class FieldError {
     /**
      * The reason the field could not be populated. One of:
      * <ul>
-     *   <li>{@code timeout} — the downstream exceeded its effective timeout</li>
-     *   <li>{@code error} — the downstream threw an unhandled exception</li>
-     *   <li>{@code dependency-failed} — a declared parent downstream failed</li>
-     *   <li>{@code blocked} — a parent was blocked and this downstream was never reached</li>
+     *   <li>{@code timeout}  -  the downstream exceeded its effective timeout</li>
+     *   <li>{@code error}  -  the downstream threw an unhandled exception</li>
+     *   <li>{@code dependency-failed}  -  a declared parent downstream failed</li>
+     *   <li>{@code blocked}  -  a parent was blocked and this downstream was never reached</li>
      * </ul>
      */
     public String getReason() {

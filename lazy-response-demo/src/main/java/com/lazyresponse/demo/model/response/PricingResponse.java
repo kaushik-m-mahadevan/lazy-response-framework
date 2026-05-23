@@ -1,10 +1,10 @@
-package com.lazyresponse.demo.model.response;
+﻿package com.lazyresponse.demo.model.response;
 
 import java.math.BigDecimal;
 
 /**
  * Mocks the response from a Dynamic Pricing Service.
- * Depends on {@code product} — needs the product category and brand for pricing rules.
+ * Depends on {@code product}  -  needs the product category and brand for pricing rules.
  */
 public class PricingResponse {
 

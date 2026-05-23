@@ -1,4 +1,4 @@
-package com.lazyresponse.registry;
+﻿package com.lazyresponse.registry;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.annotation.LazyResponse;
@@ -37,19 +37,19 @@ import java.util.stream.Collectors;
  *       public methods are scanned.</li>
  *   <li>For JDK dynamic proxies (e.g., {@code @FeignClient}):
  *       the proxy's interfaces are scanned. This allows {@code @Downstream} to be
- *       placed directly on a Feign client interface method — no wrapper service needed.</li>
+ *       placed directly on a Feign client interface method  -  no wrapper service needed.</li>
  * </ul>
  *
  * <p>Implements {@link ApplicationContextAware} to resolve {@link DownstreamRegistry} and
  * {@link LazyResponseProperties} lazily from the context rather than via constructor injection.
  * This is required because {@link BeanPostProcessor} beans are instantiated early in the
- * Spring lifecycle — before the normal bean post-processing phase — and constructor-injecting
+ * Spring lifecycle  -  before the normal bean post-processing phase  -  and constructor-injecting
  * regular beans at that point causes Spring to emit BeanPostProcessorChecker WARNs for every
  * eagerly-pulled dependency.
  *
  * <p>When the {@link ContextRefreshedEvent} fires, three actions are taken:
  * <ol>
- *   <li>The registry is sealed — triggers graph construction, cycle detection, timeout resolution</li>
+ *   <li>The registry is sealed  -  triggers graph construction, cycle detection, timeout resolution</li>
  *   <li>All {@link LazyResponse}-annotated controller methods are validated against the method contract</li>
  *   <li>All registered {@code @Downstream} methods are validated to have a supporting
  *       {@link DownstreamArgumentResolver}</li>
@@ -68,10 +68,10 @@ public class DownstreamRegistryBeanPostProcessor implements BeanPostProcessor, A
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Class<?> targetClass = AopUtils.getTargetClass(bean);
 
-        // Standard case: Spring AOP proxy or plain bean — scan the target class
+        // Standard case: Spring AOP proxy or plain bean  -  scan the target class
         scanForDownstreams(bean, targetClass);
 
-        // JDK dynamic proxy case (e.g., @FeignClient) — scan the implemented interfaces.
+        // JDK dynamic proxy case (e.g., @FeignClient)  -  scan the implemented interfaces.
         // AopUtils.getTargetClass() cannot unwrap a plain JDK proxy; the @Downstream
         // annotations live on the interface, not the generated proxy class.
         if (Proxy.isProxyClass(bean.getClass())) {

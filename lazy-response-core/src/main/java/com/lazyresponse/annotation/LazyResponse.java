@@ -1,4 +1,4 @@
-package com.lazyresponse.annotation;
+﻿package com.lazyresponse.annotation;
 
 import java.lang.annotation.*;
 
@@ -15,7 +15,7 @@ import java.lang.annotation.*;
  *   <li>Must be a {@code POST} endpoint ({@code @PostMapping})</li>
  *   <li>Must declare return type {@code ResponseEntity<?>}</li>
  *   <li>Must declare exactly one parameter whose type matches the {@code request} POJO type</li>
- *   <li>The parameter must NOT carry {@code @RequestBody} — the framework reads the body directly</li>
+ *   <li>The parameter must NOT carry {@code @RequestBody}  -  the framework reads the body directly</li>
  * </ul>
  *
  * <p>All constraints are validated at startup. Violations throw
@@ -29,7 +29,7 @@ public @interface LazyResponse {
     /**
      * The bean classes whose {@code @Downstream} methods are in scope for this endpoint.
      *
-     * <p>If left empty (the default), all registered downstreams are available — suitable for
+     * <p>If left empty (the default), all registered downstreams are available  -  suitable for
      * single-endpoint applications or during initial development. For applications with multiple
      * {@code @LazyResponse} endpoints, declaring this attribute prevents downstream ID collisions
      * and ensures each endpoint executes only its own graph.

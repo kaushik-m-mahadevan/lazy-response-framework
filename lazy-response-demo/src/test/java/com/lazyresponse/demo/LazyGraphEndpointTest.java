@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.annotation.LazyResponse;
@@ -57,7 +57,7 @@ class LazyGraphEndpointTest {
     private MockMvc mockMvc;
 
     // -------------------------------------------------------------------------
-    // 1. /lazy/graph — 200 with HTML containing Mermaid markup
+    // 1. /lazy/graph  -  200 with HTML containing Mermaid markup
     // -------------------------------------------------------------------------
 
     @Test
@@ -77,8 +77,8 @@ class LazyGraphEndpointTest {
     }
 
     // -------------------------------------------------------------------------
-    // 2. Startup validation — @LazyResponse method contract violations
-    //    (tested via WebApplicationContextRunner — no server start required)
+    // 2. Startup validation  -  @LazyResponse method contract violations
+    //    (tested via WebApplicationContextRunner  -  no server start required)
     // -------------------------------------------------------------------------
 
     private final WebApplicationContextRunner runner = new WebApplicationContextRunner()

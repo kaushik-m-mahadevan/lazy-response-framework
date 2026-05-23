@@ -1,4 +1,4 @@
-package com.lazyresponse.spi;
+﻿package com.lazyresponse.spi;
 
 /**
  * SPI for recording lazy-response execution metrics.
@@ -24,7 +24,7 @@ public interface DownstreamMetricsRecorder {
     void recordSuccess(String downstreamId, long elapsedMs);
 
     /**
-     * Called when a downstream method fails — either by throwing an exception or timing out.
+     * Called when a downstream method fails  -  either by throwing an exception or timing out.
      *
      * @param downstreamId the {@code @Downstream} id
      * @param reason       failure reason: {@code "error"}, {@code "timeout"},

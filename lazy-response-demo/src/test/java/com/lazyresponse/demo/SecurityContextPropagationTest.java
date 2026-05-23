@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Downstream;
@@ -121,7 +121,7 @@ class SecurityContextPropagationTest {
 
             @Downstream(id = "secured", fields = {"principal"})
             public Map<String, Object> fetchSecured(ExecutionContext ctx) {
-                // This runs on a pool thread — verifies SecurityContext propagation
+                // This runs on a pool thread  -  verifies SecurityContext propagation
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 String principal = (auth != null && auth.getPrincipal() != null)
                         ? auth.getName()

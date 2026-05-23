@@ -1,4 +1,4 @@
-package com.lazyresponse.demo.downstream;
+﻿package com.lazyresponse.demo.downstream;
 
 import com.lazyresponse.annotation.Default;
 import com.lazyresponse.annotation.Downstream;
@@ -20,7 +20,7 @@ import java.math.BigDecimal;
  *           ──→ pricing
  * </pre>
  *
- * <p>{@code product} is the root — fires immediately. {@code reviews} and {@code pricing}
+ * <p>{@code product} is the root  -  fires immediately. {@code reviews} and {@code pricing}
  * both depend on it and run in parallel once it completes.
  *
  * <h3>Simulated latencies:</h3>

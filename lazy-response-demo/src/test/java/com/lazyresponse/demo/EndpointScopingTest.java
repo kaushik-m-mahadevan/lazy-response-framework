@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Downstream;
@@ -39,9 +39,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * <p>Tests verify:
  * <ol>
- *   <li>Each endpoint returns its own data — {@code /api/alpha/detail} returns alpha values,
+ *   <li>Each endpoint returns its own data  -  {@code /api/alpha/detail} returns alpha values,
  *       {@code /api/beta/detail} returns beta values, even though both use id {@code "item"}.</li>
- *   <li>Template keys that belong to the other endpoint's scope are silently dropped —
+ *   <li>Template keys that belong to the other endpoint's scope are silently dropped  - 
  *       {@code /api/alpha/detail} ignores a template requesting beta-only ids.</li>
  * </ol>
  */
@@ -95,7 +95,7 @@ class EndpointScopingTest {
     @Test
     void alphaEndpoint_ignoresBetaTemplateKeys() throws Exception {
         // "betaExtra" is registered in BetaExtraDownstreams, not AlphaDownstreams
-        // The alpha endpoint must silently drop it — no error, no data for "betaExtra"
+        // The alpha endpoint must silently drop it  -  no error, no data for "betaExtra"
         mockMvc.perform(post("/api/alpha/detail")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body(Map.of(
@@ -120,7 +120,7 @@ class EndpointScopingTest {
     }
 
     // -------------------------------------------------------------------------
-    // Controllers — two separate scoped endpoints, both using id "item"
+    // Controllers  -  two separate scoped endpoints, both using id "item"
     // -------------------------------------------------------------------------
 
     @LazyAggregator
@@ -140,7 +140,7 @@ class EndpointScopingTest {
     }
 
     // -------------------------------------------------------------------------
-    // Downstream beans — unique ids per scope to avoid registry duplicate-id rejection
+    // Downstream beans  -  unique ids per scope to avoid registry duplicate-id rejection
     // -------------------------------------------------------------------------
 
     @Configuration

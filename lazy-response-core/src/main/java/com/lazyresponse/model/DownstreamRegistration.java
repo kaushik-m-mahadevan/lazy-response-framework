@@ -1,4 +1,4 @@
-package com.lazyresponse.model;
+﻿package com.lazyresponse.model;
 
 import com.lazyresponse.annotation.Default;
 import com.lazyresponse.annotation.Downstream;
@@ -84,11 +84,11 @@ public class DownstreamRegistration {
 
     private static Class<?> resolveFieldType(Class<?> clazz, String fieldName) {
         String capitalized = Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
-        // Try standard getter: getFieldName() — getMethod() walks the full hierarchy
+        // Try standard getter: getFieldName()  -  getMethod() walks the full hierarchy
         try {
             return clazz.getMethod("get" + capitalized).getReturnType();
         } catch (NoSuchMethodException ignored) { }
-        // Try boolean getter: isFieldName() — getMethod() walks the full hierarchy
+        // Try boolean getter: isFieldName()  -  getMethod() walks the full hierarchy
         try {
             return clazz.getMethod("is" + capitalized).getReturnType();
         } catch (NoSuchMethodException ignored) { }

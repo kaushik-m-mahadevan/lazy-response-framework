@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Downstream;
@@ -36,7 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * <p>Separate from {@link OrderDetailEndpointTest} because fail-fast requires a different
  * application context ({@code failure-strategy=fail-fast}). Spring caches contexts by
- * configuration key — mixing strategies in one class forces a context rebuild per test.
+ * configuration key  -  mixing strategies in one class forces a context rebuild per test.
  */
 @SpringBootTest(classes = {
         OrderDetailFailFastEndpointTest.TestController.class,

@@ -1,4 +1,4 @@
-package com.lazyresponse.annotation;
+﻿package com.lazyresponse.annotation;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,12 +8,12 @@ import java.lang.annotation.*;
 /**
  * Composite annotation for Spring MVC controllers that serve as lazy-resolution aggregation
  * endpoints. Combines {@link RestController} and {@link LazyController} into a single
- * declaration — the standard way to declare a controller in this framework.
+ * declaration  -  the standard way to declare a controller in this framework.
  *
  * <p>{@code @LazyAggregator} exists because every lazy endpoint class needs both:
  * <ul>
- *   <li>{@link RestController} — to register with Spring MVC and enable JSON serialization</li>
- *   <li>{@link LazyController} — to signal that methods inside are framework-managed
+ *   <li>{@link RestController}  -  to register with Spring MVC and enable JSON serialization</li>
+ *   <li>{@link LazyController}  -  to signal that methods inside are framework-managed
  *       and should not be treated as ordinary handler methods by tooling or documentation</li>
  * </ul>
  *
@@ -32,7 +32,7 @@ import java.lang.annotation.*;
  *     @LazyResponse(downstreams = {OrderDetailDownstreams.class})
  *     @PostMapping("/detail")
  *     public ResponseEntity<?> getOrderDetail(OrderDetailRequest request) {
- *         return null; // framework-owned — this body never executes
+ *         return null; // framework-owned  -  this body never executes
  *     }
  * }
  * }</pre>

@@ -1,8 +1,8 @@
-package com.lazyresponse.demo.model.response;
+﻿package com.lazyresponse.demo.model.response;
 
 /**
  * Mocks the response from a Reviews Aggregation Service.
- * Depends on {@code product} — needs the product id to query reviews.
+ * Depends on {@code product}  -  needs the product id to query reviews.
  */
 public class ReviewSummaryResponse {
 

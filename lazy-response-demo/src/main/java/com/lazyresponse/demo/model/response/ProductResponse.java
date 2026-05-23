@@ -1,8 +1,8 @@
-package com.lazyresponse.demo.model.response;
+﻿package com.lazyresponse.demo.model.response;
 
 /**
  * Mocks the response from an internal Product Catalogue DB read.
- * Root downstream — no dependencies. Feeds reviews and pricing.
+ * Root downstream  -  no dependencies. Feeds reviews and pricing.
  */
 public class ProductResponse {
 

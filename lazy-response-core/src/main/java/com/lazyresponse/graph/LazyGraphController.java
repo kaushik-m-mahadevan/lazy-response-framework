@@ -1,4 +1,4 @@
-package com.lazyresponse.graph;
+﻿package com.lazyresponse.graph;
 
 import com.lazyresponse.registry.DownstreamRegistry;
 import org.springframework.http.MediaType;
@@ -37,7 +37,7 @@ public class LazyGraphController {
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Lazy Response — Downstream Graph</title>
+                    <title>Lazy Response  -  Downstream Graph</title>
                     <style>
                         body {
                             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

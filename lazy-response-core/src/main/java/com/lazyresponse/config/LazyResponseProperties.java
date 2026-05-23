@@ -1,4 +1,4 @@
-package com.lazyresponse.config;
+﻿package com.lazyresponse.config;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
@@ -16,8 +16,8 @@ import org.springframework.validation.annotation.Validated;
  * lazy-response:
  *   failure-strategy: silent     # silent | fail-fast
  *   timeout:
- *     global: 3000               # ms — floor timeout for all downstreams
- *     warning-threshold: 0       # ms — soft threshold for meta.warnings (0 = disabled)
+ *     global: 3000               # ms  -  floor timeout for all downstreams
+ *     warning-threshold: 0       # ms  -  soft threshold for meta.warnings (0 = disabled)
  *   executor:
  *     pool-size: 20              # thread pool size; also sizes the semaphore
  *   graph:

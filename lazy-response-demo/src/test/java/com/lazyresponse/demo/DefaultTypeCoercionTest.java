@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Default;
@@ -37,7 +37,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * <p>Before this fix, {@code @Default(field = "active", value = "true")} would inject the
  * Java {@code String} {@code "true"} into the response map, which Jackson serialises as the
- * JSON string {@code "true"} — not the JSON boolean {@code true}. This breaks API contracts
+ * JSON string {@code "true"}  -  not the JSON boolean {@code true}. This breaks API contracts
  * for boolean and numeric fields.
  *
  * <p>This test verifies:
@@ -183,7 +183,7 @@ class DefaultTypeCoercionTest {
         public static class TypedDefaultsService {
 
             /**
-             * Always throws — forcing the framework to apply @Default values.
+             * Always throws  -  forcing the framework to apply @Default values.
              * Field types are resolved from ProductStatus's getters.
              */
             @Downstream(
@@ -191,13 +191,13 @@ class DefaultTypeCoercionTest {
                 fields  = {"active", "stockCount", "category"},
                 timeout = 500,
                 defaults = {
-                    @Default(field = "active",     value = "true"),   // boolean — must become Boolean.TRUE
-                    @Default(field = "stockCount",  value = "0"),     // int    — must become Integer 0
-                    @Default(field = "category",    value = "UNKNOWN") // String — stays as-is
+                    @Default(field = "active",     value = "true"),   // boolean  -  must become Boolean.TRUE
+                    @Default(field = "stockCount",  value = "0"),     // int     -  must become Integer 0
+                    @Default(field = "category",    value = "UNKNOWN") // String  -  stays as-is
                 }
             )
             public ProductStatus fetchProduct(ExecutionContext ctx) {
-                throw new RuntimeException("Simulated product failure — defaults must apply");
+                throw new RuntimeException("Simulated product failure  -  defaults must apply");
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.lazyresponse.graph;
+﻿package com.lazyresponse.graph;
 
 import com.lazyresponse.exception.ApplicationStartupException;
 import com.lazyresponse.model.DownstreamRegistration;
@@ -13,16 +13,16 @@ import java.util.stream.Collectors;
  * <p>Built from the sealed {@link com.lazyresponse.registry.DownstreamRegistry} at startup.
  * Responsible for:
  * <ul>
- *   <li>Reference validation — all {@code dependsOn} ids must be registered</li>
- *   <li>Cycle detection — via Kahn's topological sort algorithm; fatal if a cycle is found</li>
- *   <li>Stage construction — BFS level-grouping produces concurrent execution stages</li>
- *   <li>Chain timeout resolution — propagates {@code chainTimeout} from root nodes to
+ *   <li>Reference validation  -  all {@code dependsOn} ids must be registered</li>
+ *   <li>Cycle detection  -  via Kahn's topological sort algorithm; fatal if a cycle is found</li>
+ *   <li>Stage construction  -  BFS level-grouping produces concurrent execution stages</li>
+ *   <li>Chain timeout resolution  -  propagates {@code chainTimeout} from root nodes to
  *       descendants, taking the most conservative value at nodes with multiple parents</li>
- *   <li>Mermaid.js graph generation — for the {@code /lazy/graph} visualisation endpoint</li>
+ *   <li>Mermaid.js graph generation  -  for the {@code /lazy/graph} visualisation endpoint</li>
  * </ul>
  *
  * <p>All operations on this class are startup-time concerns. No runtime computation is
- * performed here — the graph is built once and remains immutable for the application lifetime.
+ * performed here  -  the graph is built once and remains immutable for the application lifetime.
  */
 public class DependencyGraph {
 
@@ -74,7 +74,7 @@ public class DependencyGraph {
             }
         }
 
-        // BFS — process all zero-in-degree nodes level by level
+        // BFS  -  process all zero-in-degree nodes level by level
         Queue<String> queue = new LinkedList<>();
         for (Map.Entry<String, Integer> entry : inDegree.entrySet()) {
             if (entry.getValue() == 0) {
@@ -148,10 +148,10 @@ public class DependencyGraph {
      *
      * <p>Priority (highest to lowest):
      * <ol>
-     *   <li>Per-node {@code timeout} annotation attribute — applies to this node only</li>
-     *   <li>Chain timeout — {@code chainTimeout} declared on root ancestors, propagated via BFS;
+     *   <li>Per-node {@code timeout} annotation attribute  -  applies to this node only</li>
+     *   <li>Chain timeout  -  {@code chainTimeout} declared on root ancestors, propagated via BFS;
      *       when a node has multiple parent chains, the most conservative (lowest) value applies</li>
-     *   <li>{@code globalTimeoutMs} from YAML — floor for all nodes</li>
+     *   <li>{@code globalTimeoutMs} from YAML  -  floor for all nodes</li>
      * </ol>
      *
      * <p>Chain timeouts are meaningful only on root nodes. Non-root nodes that declare
@@ -202,7 +202,7 @@ public class DependencyGraph {
         // Phase 3: set effectiveTimeout on each node
         for (DownstreamRegistration reg : nodes.values()) {
             if (reg.getTimeout() > 0) {
-                // Per-node timeout — highest priority
+                // Per-node timeout  -  highest priority
                 reg.setEffectiveTimeout(reg.getTimeout());
             } else {
                 Long chainTimeout = chainTimeoutByNode.get(reg.getId());

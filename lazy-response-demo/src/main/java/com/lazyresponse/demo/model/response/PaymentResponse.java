@@ -1,11 +1,11 @@
-package com.lazyresponse.demo.model.response;
+﻿package com.lazyresponse.demo.model.response;
 
 import java.math.BigDecimal;
 
 /**
  * Mocks the response from a Payment Gateway / internal Payments Service.
  * Depends on order (needs order total and id to look up transaction).
- * Most latency-sensitive downstream — real payment gateways are slow.
+ * Most latency-sensitive downstream  -  real payment gateways are slow.
  */
 public class PaymentResponse {
 

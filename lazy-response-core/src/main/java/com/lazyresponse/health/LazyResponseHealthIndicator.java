@@ -1,4 +1,4 @@
-package com.lazyresponse.health;
+﻿package com.lazyresponse.health;
 
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;
@@ -15,9 +15,9 @@ import java.util.concurrent.Semaphore;
  *
  * <h3>Health states:</h3>
  * <ul>
- *   <li>{@code UP} — at least one semaphore permit is available. Requests can be served.
+ *   <li>{@code UP}  -  at least one semaphore permit is available. Requests can be served.
  *       Reports {@code available} and {@code total} permit counts as detail fields.</li>
- *   <li>{@code DOWN} — no semaphore permits are available. All incoming requests will
+ *   <li>{@code DOWN}  -  no semaphore permits are available. All incoming requests will
  *       receive HTTP 503 until permits are freed. This indicates the thread pool is fully
  *       saturated and the system is under extreme load or a downstream is hanging.</li>
  * </ul>
@@ -59,7 +59,7 @@ public class LazyResponseHealthIndicator extends AbstractHealthIndicator {
             builder.up();
         } else {
             builder.down()
-                   .withDetail("message", "Thread pool fully saturated — all requests will be rejected (HTTP 503)");
+                   .withDetail("message", "Thread pool fully saturated  -  all requests will be rejected (HTTP 503)");
         }
     }
 }

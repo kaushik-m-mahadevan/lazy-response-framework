@@ -1,4 +1,4 @@
-package com.lazyresponse.metrics;
+﻿package com.lazyresponse.metrics;
 
 import com.lazyresponse.spi.DownstreamMetricsRecorder;
 import io.micrometer.core.instrument.Counter;
@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
  *
  * <h3>Metrics emitted:</h3>
  * <ul>
- *   <li>{@code lazy.response.downstream.duration} — {@link Timer} recording per-downstream
+ *   <li>{@code lazy.response.downstream.duration}  -  {@link Timer} recording per-downstream
  *       execution time. Tagged with {@code downstream.id} and {@code outcome}
  *       ({@code success} or {@code failure}). Useful for p99 latency dashboards and
  *       downstream-level SLO tracking.</li>
- *   <li>{@code lazy.response.semaphore.rejected} — {@link Counter} incremented each time a
+ *   <li>{@code lazy.response.semaphore.rejected}  -  {@link Counter} incremented each time a
  *       request is rejected because no semaphore permits are available (HTTP 503). A rising
  *       rate indicates the thread pool is undersized for the current load.</li>
- *   <li>{@code lazy.response.semaphore.available} — Gauge tracking available semaphore
+ *   <li>{@code lazy.response.semaphore.available}  -  Gauge tracking available semaphore
  *       permits in real time. Useful for capacity dashboards and alerting when approaching
  *       exhaustion.</li>
  * </ul>

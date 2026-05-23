@@ -1,4 +1,4 @@
-package com.lazyresponse.demo.downstream;
+﻿package com.lazyresponse.demo.downstream;
 
 import com.lazyresponse.annotation.Default;
 import com.lazyresponse.annotation.Downstream;
@@ -20,7 +20,7 @@ import java.math.BigDecimal;
  *           ──→ inventory
  * </pre>
  *
- * <p>{@code order} and {@code account} are roots — they fire in parallel immediately.
+ * <p>{@code order} and {@code account} are roots  -  they fire in parallel immediately.
  * {@code payment}, {@code shipment}, and {@code inventory} all depend on {@code order}.
  * {@code loyalty} depends on {@code account}.
  * The second stage ({@code payment}, {@code shipment}, {@code inventory}, {@code loyalty})
@@ -50,7 +50,7 @@ import java.math.BigDecimal;
 public class OrderDetailDownstreams {
 
     // -------------------------------------------------------------------------
-    // Root downstreams — no dependencies, fire in parallel immediately
+    // Root downstreams  -  no dependencies, fire in parallel immediately
     // -------------------------------------------------------------------------
 
     @Downstream(
@@ -90,7 +90,7 @@ public class OrderDetailDownstreams {
     }
 
     // -------------------------------------------------------------------------
-    // Second-stage downstreams — depend on order or account
+    // Second-stage downstreams  -  depend on order or account
     // -------------------------------------------------------------------------
 
     @Downstream(
@@ -113,7 +113,7 @@ public class OrderDetailDownstreams {
             throw new RuntimeException("Payment gateway connection refused for order: " + order.getId());
         }
         if (req.getOrderId() != null && req.getOrderId().endsWith("-SLOW")) {
-            sleep(4000); // Exceeds the 1500ms timeout — triggers timeout path
+            sleep(4000); // Exceeds the 1500ms timeout  -  triggers timeout path
         }
 
         sleep(400);

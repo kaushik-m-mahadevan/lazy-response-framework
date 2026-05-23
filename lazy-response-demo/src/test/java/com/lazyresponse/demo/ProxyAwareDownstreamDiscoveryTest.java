@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.annotation.LazyResponse;
@@ -50,7 +50,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * <p>Two assertions are made:
  * <ol>
  *   <li>The registry correctly registers the downstream from the proxied bean.</li>
- *   <li>An HTTP request returns the expected data — the downstream was actually invoked
+ *   <li>An HTTP request returns the expected data  -  the downstream was actually invoked
  *       through the proxy, confirming end-to-end correctness.</li>
  * </ol>
  */
@@ -86,7 +86,7 @@ class ProxyAwareDownstreamDiscoveryTest {
     }
 
     // -------------------------------------------------------------------------
-    // 2. Downstream actually invoked through proxy — aspect increments counter
+    // 2. Downstream actually invoked through proxy  -  aspect increments counter
     // -------------------------------------------------------------------------
 
     @Test

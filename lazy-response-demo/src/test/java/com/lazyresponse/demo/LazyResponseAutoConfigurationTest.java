@@ -1,4 +1,4 @@
-package com.lazyresponse.demo;
+﻿package com.lazyresponse.demo;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.autoconfigure.LazyResponseAutoConfiguration;
@@ -30,7 +30,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Framework-level auto-configuration tests using {@link WebApplicationContextRunner}.
  *
- * <p>Boots a minimal Spring context per test — no server starts. Tests bean registration,
+ * <p>Boots a minimal Spring context per test  -  no server starts. Tests bean registration,
  * conditional behaviour, YAML property binding, and startup validation (cycle detection,
  * duplicate ids, unresolved references). This is the correct tool for testing framework
  * internals: fast, isolated, and gives clean assertions on startup failures.
@@ -63,7 +63,7 @@ class LazyResponseAutoConfigurationTest {
     @Test
     void registersRequestBodyCachingFilterAsFilterRegistrationBean() {
         // The framework registers a FilterRegistrationBean<RequestBodyCachingFilter>,
-        // not a bare RequestBodyCachingFilter — assert on the wrapper type.
+        // not a bare RequestBodyCachingFilter  -  assert on the wrapper type.
         contextRunner.run(ctx ->
                 assertThat(ctx).hasSingleBean(FilterRegistrationBean.class));
     }
@@ -139,7 +139,7 @@ class LazyResponseAutoConfigurationTest {
     @Test
     void semaphoreExhausted_orchestratorReturnsSemaphoreExhaustedStatus() {
         // Verifies spec section 5.1: when permits are unavailable the request is
-        // rejected immediately with SEMAPHORE_EXHAUSTED — no downstream is invoked.
+        // rejected immediately with SEMAPHORE_EXHAUSTED  -  no downstream is invoked.
         contextRunner
                 .withUserConfiguration(ValidDownstreamsConfig.class)
                 .run(ctx -> {
@@ -156,7 +156,7 @@ class LazyResponseAutoConfigurationTest {
     }
 
     // -------------------------------------------------------------------------
-    // @ConditionalOnMissingBean — consumer override
+    // @ConditionalOnMissingBean  -  consumer override
     // -------------------------------------------------------------------------
 
     @Test
@@ -171,7 +171,7 @@ class LazyResponseAutoConfigurationTest {
     }
 
     // -------------------------------------------------------------------------
-    // Startup validation — cycle detection
+    // Startup validation  -  cycle detection
     // -------------------------------------------------------------------------
 
     @Test
@@ -185,7 +185,7 @@ class LazyResponseAutoConfigurationTest {
     }
 
     // -------------------------------------------------------------------------
-    // Startup validation — duplicate downstream id
+    // Startup validation  -  duplicate downstream id
     // -------------------------------------------------------------------------
 
     @Test
@@ -199,7 +199,7 @@ class LazyResponseAutoConfigurationTest {
     }
 
     // -------------------------------------------------------------------------
-    // Startup validation — unresolved dependsOn reference
+    // Startup validation  -  unresolved dependsOn reference
     // -------------------------------------------------------------------------
 
     @Test

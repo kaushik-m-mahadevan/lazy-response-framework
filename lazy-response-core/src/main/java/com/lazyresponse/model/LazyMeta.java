@@ -1,4 +1,4 @@
-package com.lazyresponse.model;
+﻿package com.lazyresponse.model;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class LazyMeta {
     }
 
     /**
-     * Noteworthy conditions where a downstream succeeded but something is worth surfacing —
+     * Noteworthy conditions where a downstream succeeded but something is worth surfacing  - 
      * for example, a downstream that responded slower than a soft threshold without hitting
      * its hard timeout.
      */

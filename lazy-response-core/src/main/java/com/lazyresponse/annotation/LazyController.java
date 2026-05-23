@@ -1,11 +1,11 @@
-package com.lazyresponse.annotation;
+﻿package com.lazyresponse.annotation;
 
 import java.lang.annotation.*;
 
 /**
  * Semantic marker for controller classes that contain {@link LazyResponse} endpoints.
  *
- * <p>This annotation signals that the class is a lazy aggregation controller — its methods
+ * <p>This annotation signals that the class is a lazy aggregation controller  -  its methods
  * are framework-managed and should not be treated as ordinary handler methods by tooling
  * or documentation generators.
  *
@@ -19,8 +19,8 @@ import java.lang.annotation.*;
  * public class OrderDetailController { ... }
  * }</pre>
  *
- * <p>For the common case of a pure lazy aggregation controller — where all endpoints are
- * {@link LazyResponse}-annotated — prefer the {@link LazyAggregator} composite annotation,
+ * <p>For the common case of a pure lazy aggregation controller  -  where all endpoints are
+ * {@link LazyResponse}-annotated  -  prefer the {@link LazyAggregator} composite annotation,
  * which combines {@code @LazyController} and {@code @RestController} into a single declaration:
  *
  * <pre>{@code

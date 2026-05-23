@@ -1,4 +1,4 @@
-package com.lazyresponse.model;
+﻿package com.lazyresponse.model;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * against the request's field selection template.
  *
  * <p>{@code maxWidth} is the widest stage in the plan. This is the number of semaphore permits
- * atomically reserved before execution begins — it represents the maximum number of concurrent
+ * atomically reserved before execution begins  -  it represents the maximum number of concurrent
  * downstream tasks at any point during this request's lifetime.
  */
 public class ExecutionPlan {

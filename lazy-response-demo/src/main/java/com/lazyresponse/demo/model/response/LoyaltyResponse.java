@@ -1,15 +1,15 @@
-package com.lazyresponse.demo.model.response;
+﻿package com.lazyresponse.demo.model.response;
 
 /**
  * Mocks the response from a Loyalty / Rewards Points Service.
  * Depends on account (loyalty profile is keyed to account tier and id).
  * In a real system this is often a separate microservice with its own DB,
- * making it an ideal candidate for lazy loading — most pages don't need it.
+ * making it an ideal candidate for lazy loading  -  most pages don't need it.
  */
 public class LoyaltyResponse {
 
     private int points;
-    private String rewardTier;       // BRONZE | SILVER | GOLD | PLATINUM — may differ from account tier
+    private String rewardTier;       // BRONZE | SILVER | GOLD | PLATINUM  -  may differ from account tier
     private String nextReward;       // Human-readable description of next milestone
     private String expiryDate;       // ISO-8601 date after which current points expire
     private int pointsEarnedThisYear;

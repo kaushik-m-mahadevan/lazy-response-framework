@@ -1,4 +1,4 @@
-package com.lazyresponse.annotation;
+﻿package com.lazyresponse.annotation;
 
 import java.lang.annotation.*;
 
@@ -17,8 +17,8 @@ import java.lang.annotation.*;
  *
  * <h3>Timeout priority (highest to lowest):</h3>
  * <ol>
- *   <li>{@link #timeout()} — per-node override</li>
- *   <li>{@link #chainTimeout()} — inherited from root ancestor(s); most conservative wins</li>
+ *   <li>{@link #timeout()}  -  per-node override</li>
+ *   <li>{@link #chainTimeout()}  -  inherited from root ancestor(s); most conservative wins</li>
  *   <li>Global YAML {@code lazy-response.timeout.global}</li>
  * </ol>
  */
@@ -55,7 +55,7 @@ public @interface Downstream {
      * this node's chain. When a node has multiple parent chains, the most conservative
      * (lowest) {@code chainTimeout} applies.
      *
-     * <p>{@code 0} means not set — descendants inherit from the global YAML default.
+     * <p>{@code 0} means not set  -  descendants inherit from the global YAML default.
      */
     long chainTimeout() default 0;
 

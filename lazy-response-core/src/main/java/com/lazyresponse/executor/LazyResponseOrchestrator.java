@@ -1,4 +1,4 @@
-package com.lazyresponse.executor;
+﻿package com.lazyresponse.executor;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * <h3>Execution flow per request:</h3>
  * <ol>
- *   <li>Plan is built by {@link ExecutionPlanner} — stages filtered to the template and scope</li>
+ *   <li>Plan is built by {@link ExecutionPlanner}  -  stages filtered to the template and scope</li>
  *   <li>Max-width semaphore permits are atomically reserved; 503 if unavailable</li>
  *   <li>Stages execute in order; within each stage, all nodes run concurrently</li>
  *   <li>Before firing each node, its declared parents are checked in the
@@ -32,9 +32,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * <h3>Failure strategies:</h3>
  * <ul>
- *   <li>{@code silent} — failures are absorbed; affected fields get defaults or null;
+ *   <li>{@code silent}  -  failures are absorbed; affected fields get defaults or null;
  *       meta.errors is populated; 200 is always returned</li>
- *   <li>{@code fail-fast} — any failure aborts immediately; 502 for downstream error,
+ *   <li>{@code fail-fast}  -  any failure aborts immediately; 502 for downstream error,
  *       503 for timeout; no partial data is returned</li>
  * </ul>
  *
@@ -42,7 +42,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * <p>The {@link Executor} injected at construction time is expected to propagate the
  * Spring Security context when {@code spring-security-core} is on the classpath. The
  * auto-configuration wraps the thread pool with {@code DelegatingSecurityContextExecutorService}
- * automatically — downstream methods can safely call {@code SecurityContextHolder.getContext()}.
+ * automatically  -  downstream methods can safely call {@code SecurityContextHolder.getContext()}.
  */
 public class LazyResponseOrchestrator {
 
@@ -125,7 +125,7 @@ public class LazyResponseOrchestrator {
                 executeStage(stage, context, failures, elapsedMs, failFast, hardFailed);
 
                 // Release permits we no longer need. We must retain at least as many permits as the
-                // widest remaining stage requires — using only nextWidth would under-retain when a
+                // widest remaining stage requires  -  using only nextWidth would under-retain when a
                 // later stage is wider than the next (e.g. stage widths [5, 2, 5]).
                 int maxFutureWidth = 0;
                 for (int f = stageIndex + 1; f < stages.size(); f++) {
@@ -265,7 +265,7 @@ public class LazyResponseOrchestrator {
 
     /**
      * Finds the first {@link DownstreamArgumentResolver} that supports the method and
-     * resolves its arguments. Throws {@link IllegalStateException} if none matches —
+     * resolves its arguments. Throws {@link IllegalStateException} if none matches  - 
      * this is a configuration error that should have been caught at startup by
      * {@link com.lazyresponse.registry.DownstreamRegistryBeanPostProcessor}.
      */
@@ -309,7 +309,7 @@ public class LazyResponseOrchestrator {
             if (!registry.isRegistered(downstreamId)) {
                 continue;
             }
-            // Honour the endpoint scope — skip out-of-scope downstreams
+            // Honour the endpoint scope  -  skip out-of-scope downstreams
             if (!scopedIds.isEmpty() && !scopedIds.contains(downstreamId)) {
                 continue;
             }
@@ -318,7 +318,7 @@ public class LazyResponseOrchestrator {
             boolean failed = isFailedOrBlocked(downstreamId, reg, context, failures);
 
             // A downstream that ran and returned null is treated as failed for the purposes of
-            // default-value application. The caller declared @Default for a reason — null results
+            // default-value application. The caller declared @Default for a reason  -  null results
             // should not silently suppress those defaults.
             if (!failed && context.hasResult(downstreamId)
                     && context.get(downstreamId, Object.class) == null) {
@@ -330,7 +330,7 @@ public class LazyResponseOrchestrator {
                 anyFailed = true;
                 String reason = resolveFailureReason(downstreamId, reg, failures);
                 if (!failures.containsKey(downstreamId)) {
-                    // blocked/dependency-failed — downstream never ran, elapsed time is 0
+                    // blocked/dependency-failed  -  downstream never ran, elapsed time is 0
                     metricsRecorder.recordFailure(downstreamId, reason, 0L);
                 }
                 Map<String, Object> downstreamData = assembleFailedDownstream(
@@ -423,7 +423,7 @@ public class LazyResponseOrchestrator {
         try {
             return objectMapper.convertValue(value, targetType);
         } catch (IllegalArgumentException e) {
-            // Declared type doesn't accept the string — return as-is and let the caller decide
+            // Declared type doesn't accept the string  -  return as-is and let the caller decide
             return value;
         }
     }
@@ -438,14 +438,14 @@ public class LazyResponseOrchestrator {
      *   <li>If {@code templateSpec} is a {@code Map}: recurse into nested structures</li>
      * </ul>
      *
-     * <p>A {@code null} template spec — produced when the client sends
-     * {@code "template": {"order": null}} — is treated as "give me all fields" for that
+     * <p>A {@code null} template spec  -  produced when the client sends
+     * {@code "template": {"order": null}}  -  is treated as "give me all fields" for that
      * downstream, rather than "give me nothing". This matches the principle of least surprise.
      */
     @SuppressWarnings("unchecked")
     private Object filterByTemplate(Map<String, Object> resultMap, Object templateSpec) {
         if (templateSpec == null) {
-            // null means "all fields" — return the full result map unfiltered
+            // null means "all fields"  -  return the full result map unfiltered
             return resultMap != null ? resultMap : Collections.emptyMap();
         }
 
