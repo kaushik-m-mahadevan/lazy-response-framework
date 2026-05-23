@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.autoconfigure;
+package com.lazyresponse.autoconfigure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.config.LazyResponseProperties;

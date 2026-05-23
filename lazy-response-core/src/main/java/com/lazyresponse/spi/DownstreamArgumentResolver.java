@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.spi;
+package com.lazyresponse.spi;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.context.ExecutionContext;

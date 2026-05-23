@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.metrics;
+package com.lazyresponse.metrics;
 
 import com.lazyresponse.spi.DownstreamMetricsRecorder;
 import io.micrometer.core.instrument.Counter;

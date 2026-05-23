@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.registry;
+package com.lazyresponse.registry;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.annotation.LazyResponse;

@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.demo.controller;
+package com.lazyresponse.demo.controller;
 
 import com.lazyresponse.annotation.LazyAggregator;
 import com.lazyresponse.annotation.LazyResponse;

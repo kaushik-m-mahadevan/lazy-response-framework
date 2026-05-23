@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.demo;
+package com.lazyresponse.demo;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.autoconfigure.LazyResponseAutoConfiguration;

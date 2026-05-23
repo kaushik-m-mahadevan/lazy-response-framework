@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.graph;
+package com.lazyresponse.graph;
 
 import com.lazyresponse.registry.DownstreamRegistry;
 import org.springframework.http.MediaType;

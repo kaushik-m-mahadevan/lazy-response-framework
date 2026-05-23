@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.model;
+package com.lazyresponse.model;
 
 import java.util.List;
 

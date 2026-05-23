@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.demo.model.response;
+package com.lazyresponse.demo.model.response;
 
 /**
  * Mocks the response from an internal User/Account Service.

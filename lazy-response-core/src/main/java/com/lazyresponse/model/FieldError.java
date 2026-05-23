@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.model;
+package com.lazyresponse.model;
 
 /**
  * A single entry in the {@code meta.errors} block of the response envelope.

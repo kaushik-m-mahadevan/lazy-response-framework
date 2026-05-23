@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.config;
+package com.lazyresponse.config;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;

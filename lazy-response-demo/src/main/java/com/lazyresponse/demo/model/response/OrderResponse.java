@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.demo.model.response;
+package com.lazyresponse.demo.model.response;
 
 import java.math.BigDecimal;
 

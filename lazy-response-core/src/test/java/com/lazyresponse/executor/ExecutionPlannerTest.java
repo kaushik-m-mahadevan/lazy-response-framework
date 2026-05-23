@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.executor;
+package com.lazyresponse.executor;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.context.ExecutionContext;

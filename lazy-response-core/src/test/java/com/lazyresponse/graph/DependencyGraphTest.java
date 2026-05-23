@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.graph;
+package com.lazyresponse.graph;
 
 import com.lazyresponse.annotation.Downstream;
 import com.lazyresponse.context.ExecutionContext;

@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.demo.model.request;
+package com.lazyresponse.demo.model.request;
 
 /**
  * Inner request POJO for the Order Details lazy endpoint.

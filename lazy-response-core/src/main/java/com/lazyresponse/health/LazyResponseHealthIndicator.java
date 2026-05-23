@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.health;
+package com.lazyresponse.health;
 
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;

@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.annotation;
+package com.lazyresponse.annotation;
 
 import java.lang.annotation.*;
 

@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.executor;
+package com.lazyresponse.executor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lazyresponse.annotation.Default;

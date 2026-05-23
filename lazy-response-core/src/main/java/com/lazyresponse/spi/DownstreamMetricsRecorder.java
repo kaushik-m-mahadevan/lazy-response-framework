@@ -1,4 +1,4 @@
-﻿package com.lazyresponse.spi;
+package com.lazyresponse.spi;
 
 /**
  * SPI for recording lazy-response execution metrics.
