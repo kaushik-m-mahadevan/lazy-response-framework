@@ -40,7 +40,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Tests for Fix 3: Spring Security context propagation to downstream threads.
+ * Verifies Spring Security context propagation to downstream threads.
  *
  * <p>When {@code spring-security-core} is on the classpath, the framework wraps the thread
  * pool executor with {@code DelegatingSecurityContextExecutorService}. This test verifies

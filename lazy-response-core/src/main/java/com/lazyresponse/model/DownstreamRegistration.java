@@ -59,10 +59,6 @@ public class DownstreamRegistration {
         this.fieldTypes = resolveFieldTypes(method.getReturnType(), annotation.fields());
     }
 
-    // -------------------------------------------------------------------------
-    // Field type resolution (Fix 4: @Default type coercion)
-    // -------------------------------------------------------------------------
-
     /**
      * Resolves the Java type of each declared field by inspecting the method's return type.
      * Supports getter-based access ({@code getField()}, {@code isField()}) and direct field

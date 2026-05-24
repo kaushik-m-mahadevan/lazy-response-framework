@@ -38,7 +38,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Tests for Fix 2: {@link DownstreamArgumentResolver} SPI.
+ * Verifies the {@link DownstreamArgumentResolver} SPI.
  *
  * <p>Verifies:
  * <ol>

@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Tests for Fix 1: per-endpoint downstream scoping via {@link LazyResponse#downstreams()}.
+ * Verifies per-endpoint downstream scoping via {@link LazyResponse#downstreams()}.
  *
  * <p>Two controllers with overlapping downstream IDs ({@code "item"} appears in both
  * {@link AlphaDownstreams} and {@link BetaDownstreams}) are deployed in the same context.

@@ -33,12 +33,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Tests for Fix 4: {@code @Default} string values are coerced to the field's declared Java type.
+ * Verifies that {@code @Default} string values are coerced to the field's declared Java type.
  *
- * <p>Before this fix, {@code @Default(field = "active", value = "true")} would inject the
- * Java {@code String} {@code "true"} into the response map, which Jackson serialises as the
- * JSON string {@code "true"}  -  not the JSON boolean {@code true}. This breaks API contracts
- * for boolean and numeric fields.
+ * <p>{@code @Default(field = "active", value = "true")} must inject a Java {@code Boolean},
+ * not a {@code String}, so Jackson serialises it as the JSON boolean {@code true}.
  *
  * <p>This test verifies:
  * <ul>
@@ -46,7 +44,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *       not a JSON string.</li>
  *   <li>{@code @Default} on an {@code int} field produces a JSON number ({@code 42}),
  *       not a JSON string ({@code "42"}).</li>
- *   <li>{@code @Default} on a {@code String} field still works as before.</li>
+ *   <li>{@code @Default} on a {@code String} field passes through unchanged.</li>
  * </ul>
  */
 @SpringBootTest(classes = {
@@ -70,8 +68,6 @@ class DefaultTypeCoercionTest {
 
     @Test
     void booleanDefault_serialisesAsJsonBoolean_notString() throws Exception {
-        // product always throws → defaults applied. "active" defaults to "true" (string in annotation)
-        // After Fix 4: should arrive as boolean true in JSON, not string "true"
         MvcResult result = mockMvc.perform(post("/api/orders/detail")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body(Map.of("product", new String[]{"active"}))))
